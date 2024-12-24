@@ -1,0 +1,36 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "0011cf1cb2b0786421284be4d147bbed"
+application_url = "https://richards-seconds-trainer-talking.trycloudflare.com"
+embedded = true
+name = "new-project"
+handle = "new-project-20"
+
+[webhooks]
+api_version = "2024-10"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/scopes_update" ]
+  uri = "/webhooks/app/scopes_update"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://richards-seconds-trainer-talking.trycloudflare.com/auth/callback",
+  "https://richards-seconds-trainer-talking.trycloudflare.com/auth/shopify/callback",
+  "https://richards-seconds-trainer-talking.trycloudflare.com/api/auth/callback"
+]
+
+[pos]
+embedded = false
+
+[build]
+dev_store_url = "test-store-lab.myshopify.com"
+automatically_update_urls_on_dev = true
